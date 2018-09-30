@@ -1,0 +1,7 @@
+<%= simple_form_for @location do |f| %>
+  <%= f.input :name %>
+  <%= f.input :latitude %>
+  <%= f.input :longitude %>
+  <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+  <%= f.button :submit %>
+<% end %>

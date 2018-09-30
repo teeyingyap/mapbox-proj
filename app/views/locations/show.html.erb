@@ -1,0 +1,9 @@
+<p>
+  <strong>Name:</strong>
+  <%= @location.name %> 
+  <br>
+
+  <% @location.tags.each do |tag| %>
+  	<%= tag.name %><br>
+  <% end %>
+</p>

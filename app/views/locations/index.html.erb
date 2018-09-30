@@ -1,0 +1,24 @@
+<h3>Search by filter:</h3>
+<%= form_tag(locations_path, method: :get) do %>
+  <% Tag.pluck(:name).each do |tag_name| %>
+    <%= check_box_tag 'tags[]', tag_name %>
+    <%= h tag_name %>
+  <% end %>
+  <%= submit_tag 'Submit' %>
+<% end %>
+
+<% if @locations.present? %>
+  <% @locations.each do |location| %>
+    <div class="card">
+      <div class="card-body">
+        <p class="card-title"><%= location.name %></p>
+        <% location.tags.each do |tag| %>
+          <h6 class="card-subtitle mb-2 text-muted"><%= tag.name %></h6>
+        <% end %> 
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+
+<div id='map' style='width: 400px; height: 300px;'></div>
